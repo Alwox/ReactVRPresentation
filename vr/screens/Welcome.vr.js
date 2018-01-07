@@ -4,36 +4,80 @@ import {
   Pano,
   Text,
   View,
+  VrButton,
   Model,
   Image,
-  CylindricalPanel,
 } from 'react-vr';
 
 export default class ReactVRPresentation extends React.Component {
   render() {
     return (
-      <View>
+      <View
+        style={{
+          transform: [{translate: [-4, 2, -5]}],
+        }}
+      >
         <Pano source={asset('images/space.png')}/>
         <View style={{
           flex: 1,
           flexDirection: 'row',
-          width: 5,
-          transform: [{translate: [-1, 1, -5]}],
+          width: 6,
+          transform: [{translate: [0, 1, 0]}],
         }}>
+          <Image
+            source={asset(`images/react_logo2.png`)}
+            style={{
+              width: 1.92,
+              height: 1.356,
+            }}
+          />
+          {/*<Model*/}
+            {/*source={{*/}
+              {/*obj: asset('models/react/model.obj'),*/}
+              {/*mtl: asset('models/react/materials.mtl'),*/}
+            {/*}}*/}
+          {/*/>*/}
           <Text
             style={{
-              backgroundColor: '#777879',
-              fontSize: 1,
+              fontSize: 1.1,
               fontWeight: '400',
-              paddingLeft: 0.2,
-              paddingRight: 0.2,
               textAlign: 'center',
               textAlignVertical: 'center',
-              width:3
+              width:5
             }}>
             React VR
           </Text>
         </View>
+        <Text
+          style={{
+            fontSize: 0.5,
+            fontWeight: '400',
+            textAlign: 'center',
+            textAlignVertical: 'center',
+            transform: [{translate: [2, 0, 0]}],
+            width:4
+          }}>
+          Super Prezentacja
+        </Text>
+        <VrButton
+          style={{
+            transform: [{translate: [3, -1, 0]}],
+            borderWidth:0.05,
+            borderColor: '#d6d7da',
+            borderRadius:0.1,
+            width:2
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 0.4,
+              fontWeight: '400',
+              textAlign: 'center',
+              textAlignVertical: 'center',
+            }}>
+            START
+          </Text>
+        </VrButton>
       </View>
     );
   }
