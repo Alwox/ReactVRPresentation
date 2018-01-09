@@ -13,9 +13,17 @@ import {
 export default class showMeCode extends React.Component {
   render() {
     return (
-      <View>
-        <Pano source={asset('chess-world.jpg')}/>
-        <CylindricalPanel layer={{width: 1272, height: 1000}}>
+      <View
+        style={{
+          width:8,
+        }}
+      >
+        <Pano source={asset('images/space.png')}/>
+        <CylindricalPanel
+          layer={{width: 1272, height: 1000}}
+          style={{
+            transform: [{translate: [0, -2, 5]}]
+          }}>
           <Image
             source={asset(`images/indexFileScreenShot.png`)}
             style={{width: 1272, height: 1000}}
@@ -24,7 +32,7 @@ export default class showMeCode extends React.Component {
         <View
           style={{
             flexDirection: 'row',
-            transform: [{translate: [0, -1, 0]}],
+            transform: [{translate: [0, -6, 0]}],
             justifyContent: 'space-around'
           }}
         >
