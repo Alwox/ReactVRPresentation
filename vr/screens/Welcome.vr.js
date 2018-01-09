@@ -21,7 +21,7 @@ export default class ReactVRPresentation extends React.Component {
           transform: [{translate: [0, 1, 0]}],
         }}>
           <Image
-            source={asset(`images/react_logo2.png`)}
+            source={asset(`images/react_logo.png`)}
             style={{
               width: 1.92,
               height: 1.356,
