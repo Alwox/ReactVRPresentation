@@ -12,11 +12,7 @@ import {
 export default class ReactVRPresentation extends React.Component {
   render() {
     return (
-      <View
-        style={{
-          transform: [{translate: [-4, 2, -5]}],
-        }}
-      >
+      <View>
         <Pano source={asset('images/space.png')}/>
         <View style={{
           flex: 1,

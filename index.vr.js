@@ -23,7 +23,11 @@ export default class ReactVRPresentation extends React.Component {
 
   render() {
     return (
-      <View>
+      <View
+        style={{
+          transform: [{translate: [-4, 3, -7]}],
+        }}
+      >
         {this.state.screen === 0 &&
           <Welcome
             changeScreen={this.changeScreen.bind(this, 1)}

@@ -12,7 +12,6 @@ export default class ReactVRPresentation extends React.Component {
     return (
       <View
         style={{
-          transform: [{translate: [-4, 3, -5]}],
           width:8,
         }}
       >
