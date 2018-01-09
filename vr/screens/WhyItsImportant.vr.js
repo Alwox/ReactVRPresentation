@@ -7,7 +7,7 @@ import {
   VrButton,
 } from 'react-vr';
 
-export default class WhatItIs extends React.Component {
+export default class WhyItsImportant extends React.Component {
   render() {
     return (
       <View
@@ -23,37 +23,46 @@ export default class WhatItIs extends React.Component {
             textAlign: 'center',
             textAlignVertical: 'center',
           }}>
-          What React VR is?
+          Why it can be important?
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * framework for easier and faster creating 3D and VR websites
+          * we can already use it
+        </Text>
+        <Text
+          style={{
+            fontSize: 0.25,
+            transform: [{translate: [1, 0, 0]}],
+          }}>
+          - virtual tours
+        </Text>
+        <Text
+          style={{
+            fontSize: 0.25,
+            transform: [{translate: [1, 0, 0]}],
+          }}>
+          - commercial websites
+        </Text>
+        <Text
+          style={{
+            fontSize: 0.25,
+            transform: [{translate: [1, 0, 0]}],
+          }}>
+          - showing 3D models
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * based on React Native
+          * VR market is growing really fast
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * contains also React, WebVR, three.js, Yoga
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * young environment with mature background
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * really good performance
+          * and is moving into web direction
         </Text>
 
         <View
