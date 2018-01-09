@@ -7,11 +7,33 @@ import ShowMeCode from './vr/screens/ShowMeCode.vr';
 import Welcome from './vr/screens/Welcome.vr.js';
 
 export default class ReactVRPresentation extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      screen: 0,
+    }
+  }
+
+  changeScreen(value){
+    this.setState({
+      screen: value,
+    })
+  }
+
   render() {
     return (
       <View>
-        <Welcome/>
-        {/*<ShowMeCode/>*/}
+        {this.state.screen === 0 &&
+          <Welcome
+            changeScreen={this.changeScreen.bind(this, 1)}
+          />
+        }
+        {this.state.screen === 1 &&
+          <ShowMeCode
+            goBack={this.changeScreen.bind(this, 0)}
+            changeScreen={this.changeScreen.bind(this, 2)}
+          />
+        }
       </View>
     );
   }

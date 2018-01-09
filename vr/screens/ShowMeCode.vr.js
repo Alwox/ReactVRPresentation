@@ -5,6 +5,9 @@ import {
   View,
   Image,
   CylindricalPanel,
+  VrButton,
+  Text,
+  NativeModules,
 } from 'react-vr';
 
 export default class showMeCode extends React.Component {
@@ -18,6 +21,38 @@ export default class showMeCode extends React.Component {
             style={{width: 1272, height: 1000}}
           />
         </CylindricalPanel>
+        <VrButton
+          onClick={this.props.goBack}
+          style={{
+            transform: [{translate: [-3, -1, -2]}],
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 0.4,
+              fontWeight: '400',
+              textAlign: 'center',
+              textAlignVertical: 'center',
+            }}>
+            Back
+          </Text>
+        </VrButton>
+        {/*<VrButton*/}
+          {/*onClick={()=>NativeModules.LinkingManager.openURL('https://translate.google.com')}*/}
+          {/*style={{*/}
+            {/*transform: [{translate: [-3, -1, -2]}],*/}
+          {/*}}*/}
+        {/*>*/}
+          {/*<Text*/}
+            {/*style={{*/}
+              {/*fontSize: 0.4,*/}
+              {/*fontWeight: '400',*/}
+              {/*textAlign: 'center',*/}
+              {/*textAlignVertical: 'center',*/}
+            {/*}}>*/}
+            {/*SITE*/}
+          {/*</Text>*/}
+        {/*</VrButton>*/}
       </View>
     );
   }

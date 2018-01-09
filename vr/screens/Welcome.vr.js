@@ -60,6 +60,7 @@ export default class ReactVRPresentation extends React.Component {
           Super Prezentacja
         </Text>
         <VrButton
+          onClick={this.props.changeScreen}
           style={{
             transform: [{translate: [3, -1, 0]}],
             borderWidth:0.05,
