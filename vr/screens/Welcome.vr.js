@@ -17,7 +17,7 @@ export default class ReactVRPresentation extends React.Component {
         <View style={{
           flex: 1,
           flexDirection: 'row',
-          width: 6,
+          width: 7,
           transform: [{translate: [0, 1, 0]}],
         }}>
           <Image
@@ -39,21 +39,20 @@ export default class ReactVRPresentation extends React.Component {
               fontWeight: '400',
               textAlign: 'center',
               textAlignVertical: 'center',
-              width:5
+              width:6
             }}>
             React VR
           </Text>
         </View>
         <Text
           style={{
-            fontSize: 0.5,
+            fontSize: 0.6,
             fontWeight: '400',
             textAlign: 'center',
             textAlignVertical: 'center',
-            transform: [{translate: [2, 0, 0]}],
-            width:4
+            transform: [{translate: [0.6, 0, 0]}],
           }}>
-          Super Prezentacja
+          create VR experience easily
         </Text>
         <VrButton
           onClick={this.props.changeScreen}

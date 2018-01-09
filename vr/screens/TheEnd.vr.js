@@ -7,7 +7,7 @@ import {
   VrButton,
 } from 'react-vr';
 
-export default class WhatWeNeed extends React.Component {
+export default class TheEnd extends React.Component {
   render() {
     return (
       <View
@@ -18,54 +18,13 @@ export default class WhatWeNeed extends React.Component {
         <Pano source={asset('images/space.png')}/>
         <Text
           style={{
-            fontSize: 0.7,
+            fontSize: 0.8,
             fontWeight: '400',
             textAlign: 'center',
             textAlignVertical: 'center',
           }}>
-          What we need?
+          Thank you!
         </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * as a user
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - browser with WebGL support
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - for using VR devices - also with WebVR
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * as a programmer
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - Node.js
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - react-vr-cli from npm
-        </Text>
-
 
         <View
           style={{
@@ -109,7 +68,7 @@ export default class WhatWeNeed extends React.Component {
                 textAlign: 'center',
                 textAlignVertical: 'center',
               }}>
-              Next
+              Restart
             </Text>
           </VrButton>
         </View>

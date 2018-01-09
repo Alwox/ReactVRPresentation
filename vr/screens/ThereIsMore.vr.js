@@ -7,7 +7,7 @@ import {
   VrButton,
 } from 'react-vr';
 
-export default class WhatWeNeed extends React.Component {
+export default class ThereIsMore extends React.Component {
   render() {
     return (
       <View
@@ -23,49 +23,26 @@ export default class WhatWeNeed extends React.Component {
             textAlign: 'center',
             textAlignVertical: 'center',
           }}>
-          What we need?
+          There is more!
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * as a user
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - browser with WebGL support
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - for using VR devices - also with WebVR
+          * 4 types of light
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * as a programmer
+          * Sound
         </Text>
         <Text
           style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
+            fontSize: 0.3,
           }}>
-          - Node.js
+          * 2 components for video
         </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - react-vr-cli from npm
-        </Text>
-
 
         <View
           style={{

@@ -8,6 +8,10 @@ import Welcome from './vr/screens/Welcome.vr.js';
 import WhatItIs from './vr/screens/WhatItIs.vr';
 import WhyItsImportant from './vr/screens/WhyItsImportant.vr';
 import WhatWeNeed from './vr/screens/WhatWeNeed.vr';
+import Models from './vr/screens/Models.vr';
+import ThereIsMore from './vr/screens/ThereIsMore.vr';
+import NewChallenges from './vr/screens/NewChallenges.vr';
+import TheEnd from './vr/screens/TheEnd.vr';
 
 export default class ReactVRPresentation extends React.Component {
   constructor(){
@@ -58,6 +62,30 @@ export default class ReactVRPresentation extends React.Component {
             goBack={this.changeScreen.bind(this, 3)}
             changeScreen={this.changeScreen.bind(this, 5)}
           />
+        }
+        {this.state.screen === 5 &&
+        <Models
+          goBack={this.changeScreen.bind(this, 4)}
+          changeScreen={this.changeScreen.bind(this, 6)}
+        />
+        }
+        {this.state.screen === 6 &&
+        <ThereIsMore
+          goBack={this.changeScreen.bind(this, 5)}
+          changeScreen={this.changeScreen.bind(this, 7)}
+        />
+        }
+        {this.state.screen === 7 &&
+        <NewChallenges
+          goBack={this.changeScreen.bind(this, 6)}
+          changeScreen={this.changeScreen.bind(this, 8)}
+        />
+        }
+        {this.state.screen === 8 &&
+        <TheEnd
+          goBack={this.changeScreen.bind(this, 7)}
+          changeScreen={this.changeScreen.bind(this, 0)}
+        />
         }
       </View>
     );

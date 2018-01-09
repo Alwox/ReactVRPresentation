@@ -7,7 +7,7 @@ import {
   VrButton,
 } from 'react-vr';
 
-export default class WhatWeNeed extends React.Component {
+export default class Models extends React.Component {
   render() {
     return (
       <View
@@ -23,49 +23,20 @@ export default class WhatWeNeed extends React.Component {
             textAlign: 'center',
             textAlignVertical: 'center',
           }}>
-          What we need?
+          3D models
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * as a user
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - browser with WebGL support
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - for using VR devices - also with WebVR
+          * 4 primitives objects
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * as a programmer
+          * Model component
         </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - Node.js
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - react-vr-cli from npm
-        </Text>
-
 
         <View
           style={{

@@ -18,7 +18,7 @@ export default class WhatItIs extends React.Component {
         <Pano source={asset('images/space.png')}/>
         <Text
           style={{
-            fontSize: 0.9,
+            fontSize: 0.7,
             fontWeight: '400',
             textAlign: 'center',
             textAlignVertical: 'center',
