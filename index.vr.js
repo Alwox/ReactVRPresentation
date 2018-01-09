@@ -7,6 +7,7 @@ import ShowMeCode from './vr/screens/ShowMeCode.vr';
 import Welcome from './vr/screens/Welcome.vr.js';
 import WhatItIs from './vr/screens/WhatItIs.vr';
 import WhyItsImportant from './vr/screens/WhyItsImportant.vr';
+import WhatWeNeed from './vr/screens/WhatWeNeed.vr';
 
 export default class ReactVRPresentation extends React.Component {
   constructor(){
@@ -47,9 +48,15 @@ export default class ReactVRPresentation extends React.Component {
         />
         }
         {this.state.screen === 3 &&
+        <WhatWeNeed
+          goBack={this.changeScreen.bind(this, 2)}
+          changeScreen={this.changeScreen.bind(this, 4)}
+        />
+        }
+        {this.state.screen === 4 &&
           <ShowMeCode
-            goBack={this.changeScreen.bind(this, 1)}
-            changeScreen={this.changeScreen.bind(this, 3)}
+            goBack={this.changeScreen.bind(this, 3)}
+            changeScreen={this.changeScreen.bind(this, 5)}
           />
         }
       </View>

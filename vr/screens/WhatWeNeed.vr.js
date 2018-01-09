@@ -7,7 +7,7 @@ import {
   VrButton,
 } from 'react-vr';
 
-export default class WhyItsImportant extends React.Component {
+export default class WhatWeNeed extends React.Component {
   render() {
     return (
       <View
@@ -23,47 +23,49 @@ export default class WhyItsImportant extends React.Component {
             textAlign: 'center',
             textAlignVertical: 'center',
           }}>
-          Why it can be important?
+          What we need?
         </Text>
         <Text
           style={{
             fontSize: 0.3,
           }}>
-          * we can already use it
+          * as a user
         </Text>
         <Text
           style={{
             fontSize: 0.25,
             transform: [{translate: [0.5, 0, 0]}],
           }}>
-          - virtual tours
+          - browser with WebGL support
         </Text>
         <Text
           style={{
             fontSize: 0.25,
             transform: [{translate: [0.5, 0, 0]}],
           }}>
-          - commercial websites
+          - for using VR devices - also with WebVR
+        </Text>
+        <Text
+          style={{
+            fontSize: 0.3,
+          }}>
+          * as a programmer
         </Text>
         <Text
           style={{
             fontSize: 0.25,
             transform: [{translate: [0.5, 0, 0]}],
           }}>
-          - showing 3D models
+          - Node.js
         </Text>
         <Text
           style={{
-            fontSize: 0.3,
+            fontSize: 0.25,
+            transform: [{translate: [0.5, 0, 0]}],
           }}>
-          * VR market is growing really fast
+          - react-vr-cli from npm
         </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * and is moving into web direction
-        </Text>
+
 
         <View
           style={{
