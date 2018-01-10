@@ -43,7 +43,7 @@ export default class WhyItsImportant extends React.Component {
             fontSize: 0.25,
             transform: [{translate: [0.5, 0, 0]}],
           }}>
-          - commercial websites
+          - product advertising websites
         </Text>
         <Text
           style={{
