@@ -5,6 +5,11 @@ import {
   Text,
   View,
   VrButton,
+  Box,
+  Plane,
+  Sphere,
+  Cylinder,
+  SpotLight,
 } from 'react-vr';
 
 export default class ThereIsMore extends React.Component {
@@ -90,6 +95,73 @@ export default class ThereIsMore extends React.Component {
             </Text>
           </VrButton>
         </View>
+
+        <SpotLight style={{color:'white', transform:[{translate:[-5,6,12]}]}} angle={60}/>
+        <Box
+          dimWidth={2}
+          dimDepth={2}
+          dimHeight={1}
+          lit
+          style={{
+            transform: [
+              {translate: [9, -1, 2]},
+              {rotateZ:50}
+            ],
+            color:'rgb(110, 183, 216)',
+          }}
+        />
+        <Plane
+          dimWidth={10}
+          dimHeight={20}
+          lit
+          style={{
+            transform: [
+              {translate: [4, -9, 6]},
+              {rotateZ:0},
+              {rotateX:-90},
+              {rotateY:0}
+            ],
+            color:'rgb(182, 219, 203)',
+          }}
+        />
+        <Sphere
+          radius={2}
+          widthSegments={20}
+          heightSegments={20}
+          lit
+          style={{
+            transform: [
+              {translate: [0, 0, 5]},
+            ],
+            color:'rgb(182, 219, 203)',
+          }}
+        />
+        <Cylinder
+          radiusTop={0.5}
+          radiusBottom={0.5}
+          dimHeight={2}
+          segments={12}
+          lit
+          style={{
+            transform: [
+              {translate: [0, -6, 4]},
+            ],
+            color:'rgb(182, 219, 203)',
+          }}
+        />
+        <Cylinder
+          radiusTop={0}
+          radiusBottom={1}
+          dimHeight={2}
+          segments={12}
+          lit
+          style={{
+            transform: [
+              {translate: [9, -6, 4]},
+            ],
+            color:'rgb(182, 219, 203)',
+          }}
+        />
       </View>
     );
   }
