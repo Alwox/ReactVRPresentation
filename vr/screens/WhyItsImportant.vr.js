@@ -2,115 +2,80 @@ import React from 'react';
 import {
   asset,
   Pano,
-  Text,
   View,
-  VrButton,
 } from 'react-vr';
+import ButtonPres from '../components/ButtonPres.vr';
+import TextPres from '../components/TextPres.vr';
 
 export default class WhyItsImportant extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      distance: -6,
+      showElements: 0,
+    }
+  }
+
+  componentDidMount(){
+    this.move();
+  }
+
+  move(){
+    if(this.state.distance < 0){
+      this.setState({
+        distance: this.state.distance + 0.2
+      });
+      setTimeout(
+        () => this.move(),
+        10
+      )
+    }
+  }
+
+  showMore(){
+    this.setState({
+      showElements: this.state.showElements + 1,
+    })
+  }
+
   render() {
+    const {showElements} = this.state;
     return (
       <View
         style={{
-          width:8,
+          alignItems: 'center',
+          height: 5
         }}
       >
         <Pano source={asset('images/space.png')}/>
-        <Text
+        <TextPres
           style={{
-            fontSize: 0.7,
-            fontWeight: '400',
-            textAlign: 'center',
-            textAlignVertical: 'center',
-          }}>
-          Why it can be important?
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * we can already use it
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - virtual tours
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - product advertising websites
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.25,
-            transform: [{translate: [0.5, 0, 0]}],
-          }}>
-          - showing 3D models
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * VR market is growing really fast
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * and is moving into web direction
-        </Text>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            transform: [{translate: [0, -1, 0]}],
-            justifyContent: 'space-around'
+            transform: [{translate: [0, 0, this.state.distance]}],
           }}
-        >
-          <VrButton
-            onClick={this.props.goBack}
-            style={{
-              borderWidth:0.02,
-              borderColor: '#d6d7da',
-              borderRadius:0.1,
-              width:1
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 0.3,
-                fontWeight: '400',
-                textAlign: 'center',
-                textAlignVertical: 'center',
-              }}>
-              Back
-            </Text>
-          </VrButton>
-          <VrButton
-            onClick={this.props.changeScreen}
-            style={{
-              borderWidth:0.02,
-              borderColor: '#d6d7da',
-              borderRadius:0.1,
-              width:1
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 0.3,
-                fontWeight: '400',
-                textAlign: 'center',
-                textAlignVertical: 'center',
-              }}>
-              Next
-            </Text>
-          </VrButton>
-        </View>
+          text="Why we should care?"
+          type="title"
+        />
+        {
+          showElements >= 1 &&
+          <TextPres
+            text="we can already use it"
+          />
+        }
+        {
+          showElements >= 2 &&
+          <TextPres
+            text="VR market is growing really fast"
+          />
+        }
+        {
+          showElements >= 3 &&
+          <TextPres
+            text="and is moving into web direction"
+          />
+        }
+        <ButtonPres
+          onClick={this.showMore.bind(this)}
+        />
       </View>
     );
   }
