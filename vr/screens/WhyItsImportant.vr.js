@@ -3,6 +3,7 @@ import {
   asset,
   Pano,
   View,
+  SpotLight,
 } from 'react-vr';
 import ButtonPres from '../components/ButtonPres.vr';
 import TextPres from '../components/TextPres.vr';
@@ -47,6 +48,15 @@ export default class WhyItsImportant extends React.Component {
           height: 5
         }}
       >
+        <SpotLight
+          style={{
+            color:'white',
+            transform:[{
+              translate:[-5,6,12]
+            }]
+          }}
+          angle={60}
+        />
         <Pano source={asset('images/space.png')}/>
         <TextPres
           style={{

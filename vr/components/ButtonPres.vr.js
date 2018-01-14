@@ -11,6 +11,7 @@ export default class ButtonPres extends React.Component {
         onClick={this.props.onClick}
       >
         <Sphere
+          lit
           radius={0.3}
           widthSegments={20}
           heightSegments={20}
