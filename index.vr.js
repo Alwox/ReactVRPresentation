@@ -12,6 +12,7 @@ import Models from './vr/screens/Models.vr';
 import ThereIsMore from './vr/screens/ThereIsMore.vr';
 import NewChallenges from './vr/screens/NewChallenges.vr';
 import TheEnd from './vr/screens/TheEnd.vr';
+import ButtonsPanel from './vr/components/ButtonsPanel.vr';
 
 export default class ReactVRPresentation extends React.Component {
   constructor(){
@@ -21,71 +22,65 @@ export default class ReactVRPresentation extends React.Component {
     }
   }
 
-  changeScreen(value){
-    this.setState({
-      screen: value,
-    })
+  changeScreen(next){
+    const {screen} = this.state;
+    if(next && screen === 8){
+      this.setState({
+        screen: 0,
+      })
+    } else {
+      this.setState({
+        screen: next ? screen + 1 : screen - 1,
+      })
+    }
   }
 
   render() {
+    const {screen} = this.state;
     return (
       <View
         style={{
-          transform: [{translate: [-4, 3, -7]}],
+          transform: [{translate: [-6, 3, -7]}],
+          height: 6,
+          width:12,
+          backgroundColor: 'red',
+          justifyContent: 'space-between'
         }}
       >
-        {this.state.screen === 0 &&
+        {screen === 0 &&
           <Welcome
-            changeScreen={this.changeScreen.bind(this, 1)}
+            changeScreen={this.changeScreen.bind(this, true)}
           />
         }
-        {this.state.screen === 1 &&
-        <WhyItsImportant
-          goBack={this.changeScreen.bind(this, 0)}
-          changeScreen={this.changeScreen.bind(this, 2)}
-        />
+        {screen === 1 &&
+        <WhyItsImportant/>
         }
-        {this.state.screen === 2 &&
-        <WhatItIs
-          goBack={this.changeScreen.bind(this, 1)}
-          changeScreen={this.changeScreen.bind(this, 3)}
-        />
+        {screen === 2 &&
+        <WhatItIs/>
         }
-        {this.state.screen === 3 &&
-        <WhatWeNeed
-          goBack={this.changeScreen.bind(this, 2)}
-          changeScreen={this.changeScreen.bind(this, 4)}
-        />
+        {screen === 3 &&
+        <WhatWeNeed/>
         }
-        {this.state.screen === 4 &&
-          <ShowMeCode
-            goBack={this.changeScreen.bind(this, 3)}
-            changeScreen={this.changeScreen.bind(this, 5)}
+        {screen === 4 &&
+          <ShowMeCode/>
+        }
+        {screen === 5 &&
+        <Models/>
+        }
+        {screen === 6 &&
+        <ThereIsMore/>
+        }
+        {screen === 7 &&
+        <NewChallenges/>
+        }
+        {screen === 8 &&
+        <TheEnd/>
+        }
+        {screen !== 0 &&
+          <ButtonsPanel
+            back={this.changeScreen.bind(this, false)}
+            next={this.changeScreen.bind(this, true)}
           />
-        }
-        {this.state.screen === 5 &&
-        <Models
-          goBack={this.changeScreen.bind(this, 4)}
-          changeScreen={this.changeScreen.bind(this, 6)}
-        />
-        }
-        {this.state.screen === 6 &&
-        <ThereIsMore
-          goBack={this.changeScreen.bind(this, 5)}
-          changeScreen={this.changeScreen.bind(this, 7)}
-        />
-        }
-        {this.state.screen === 7 &&
-        <NewChallenges
-          goBack={this.changeScreen.bind(this, 6)}
-          changeScreen={this.changeScreen.bind(this, 8)}
-        />
-        }
-        {this.state.screen === 8 &&
-        <TheEnd
-          goBack={this.changeScreen.bind(this, 7)}
-          changeScreen={this.changeScreen.bind(this, 0)}
-        />
         }
       </View>
     );

@@ -49,53 +49,6 @@ export default class ThereIsMore extends React.Component {
           * 2 components for video
         </Text>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            transform: [{translate: [0, -1, 0]}],
-            justifyContent: 'space-around'
-          }}
-        >
-          <VrButton
-            onClick={this.props.goBack}
-            style={{
-              borderWidth:0.02,
-              borderColor: '#d6d7da',
-              borderRadius:0.1,
-              width:1
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 0.3,
-                fontWeight: '400',
-                textAlign: 'center',
-                textAlignVertical: 'center',
-              }}>
-              Back
-            </Text>
-          </VrButton>
-          <VrButton
-            onClick={this.props.changeScreen}
-            style={{
-              borderWidth:0.02,
-              borderColor: '#d6d7da',
-              borderRadius:0.1,
-              width:1
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 0.3,
-                fontWeight: '400',
-                textAlign: 'center',
-                textAlignVertical: 'center',
-              }}>
-              Next
-            </Text>
-          </VrButton>
-        </View>
-
         <SpotLight style={{color:'white', transform:[{translate:[-5,6,12]}]}} angle={60}/>
         <Box
           dimWidth={2}

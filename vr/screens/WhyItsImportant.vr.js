@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Animated,
   asset,
   Pano,
   View,
@@ -7,40 +8,44 @@ import {
 } from 'react-vr';
 import ButtonPres from '../components/ButtonPres.vr';
 import TextPres from '../components/TextPres.vr';
+const AnimTextPres = Animated.createAnimatedComponent(TextPres);
 
 export default class WhyItsImportant extends React.Component {
   constructor(){
     super();
     this.state={
-      distance: -6,
+      distance: new Animated.Value(-6),
+      opacity: new Animated.Value(0),
       showElements: 0,
     }
   }
 
-  componentDidMount(){
-    this.move();
-  }
-
-  move(){
-    if(this.state.distance < 0){
-      this.setState({
-        distance: this.state.distance + 0.2
-      });
-      setTimeout(
-        () => this.move(),
-        10
-      )
-    }
+  componentDidMount() {
+    Animated.timing(
+      this.state.distance,
+      {
+        toValue: 0,
+        duration: 2000,
+      }
+    ).start();
   }
 
   showMore(){
     this.setState({
       showElements: this.state.showElements + 1,
-    })
+    });
+    Animated.timing(
+      this.state.opacity,
+      {
+        toValue: 1,
+        duration: 10000,
+      }
+    ).start();
   }
 
   render() {
     const {showElements} = this.state;
+
     return (
       <View
         style={{
@@ -57,23 +62,29 @@ export default class WhyItsImportant extends React.Component {
           }}
           angle={60}
         />
-        <Pano source={asset('images/space.png')}/>
-        <TextPres
+        <Pano source={asset('images/space.png')}/>{console.log(this.state.opacity)}
+        <AnimTextPres
           style={{
-            transform: [{translate: [0, 0, this.state.distance]}],
+            transform: [{translateZ: this.state.distance}],
           }}
           text="Why we should care?"
           type="title"
         />
         {
           showElements >= 1 &&
-          <TextPres
+          <AnimTextPres
+            style={{
+              opacity: this.state.opacity,
+            }}
             text="we can already use it"
           />
         }
         {
           showElements >= 2 &&
-          <TextPres
+          <AnimTextPres
+            style={{
+              opacity: this.state.opacity,
+            }}
             text="VR market is growing really fast"
           />
         }

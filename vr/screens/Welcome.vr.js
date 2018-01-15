@@ -5,20 +5,21 @@ import {
   Text,
   View,
   VrButton,
-  Model,
   Image,
 } from 'react-vr';
+import TextPres from '../components/TextPres.vr';
 
 export default class ReactVRPresentation extends React.Component {
   render() {
     return (
-      <View>
+      <View
+        style={{
+          alignItems: 'center',
+        }}
+      >
         <Pano source={asset('images/space.png')}/>
         <View style={{
-          flex: 1,
           flexDirection: 'row',
-          width: 7,
-          transform: [{translate: [0, 1, 0]}],
         }}>
           <Image
             source={asset(`images/react_logo.png`)}
@@ -27,41 +28,28 @@ export default class ReactVRPresentation extends React.Component {
               height: 1.356,
             }}
           />
-          {/*<Model*/}
-            {/*source={{*/}
-              {/*obj: asset('models/react/model.obj'),*/}
-              {/*mtl: asset('models/react/materials.mtl'),*/}
-            {/*}}*/}
-          {/*/>*/}
           <Text
             style={{
               fontSize: 1.1,
               fontWeight: '400',
               textAlign: 'center',
               textAlignVertical: 'center',
-              width:6
+              width: 5
             }}>
             React VR
           </Text>
         </View>
-        <Text
-          style={{
-            fontSize: 0.6,
-            fontWeight: '400',
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            transform: [{translate: [0.6, 0, 0]}],
-          }}>
-          create VR experience easily
-        </Text>
+        <TextPres
+          text="create VR experience easily"
+        />
         <VrButton
           onClick={this.props.changeScreen}
           style={{
-            transform: [{translate: [3, -1, 0]}],
             borderWidth:0.05,
             borderColor: '#d6d7da',
             borderRadius:0.1,
-            width:2
+            width:2,
+            marginTop: 1,
           }}
         >
           <Text
