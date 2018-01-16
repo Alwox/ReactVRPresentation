@@ -16,7 +16,6 @@ export default class WhyItsImportant extends React.Component {
     super();
     this.state={
       distance: new Animated.Value(-6),
-      opacity: new Animated.Value(0),
       showElements: 0,
     }
   }
@@ -84,7 +83,6 @@ export default class WhyItsImportant extends React.Component {
             }}
           >
             <TextPres
-              style={{}}
               text="we can already use it"
             />
             <View
@@ -107,9 +105,6 @@ export default class WhyItsImportant extends React.Component {
                 style={{
                   width: 3,
                   height: 2.1,
-                  transform: [{
-                    translate: [0,0,0]
-                  }]
                 }}
               />
             </View>
@@ -133,9 +128,6 @@ export default class WhyItsImportant extends React.Component {
                 style={{
                   width: 3,
                   height: 2.1,
-                  transform: [{
-                    translate: [0,0,0]
-                  }]
                 }}
               />
             </View>
@@ -159,9 +151,6 @@ export default class WhyItsImportant extends React.Component {
                 style={{
                   width: 3,
                   height: 2.1,
-                  transform: [{
-                    translate: [0,0,0]
-                  }]
                 }}
               />
             </View>
@@ -169,10 +158,7 @@ export default class WhyItsImportant extends React.Component {
         }
         {
           showElements >= 2 &&
-          <AnimTextPres
-            style={{
-              opacity: this.state.opacity,
-            }}
+          <TextPres
             text="VR market is growing really fast"
           />
         }
