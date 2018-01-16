@@ -21,6 +21,9 @@ export default class ButtonsPanel extends React.Component {
             borderRadius:0.1,
             width:1,
             marginRight: 5,
+            transform: [{
+              rotateY: 26
+            }]
           }}
         >
           <Text
@@ -41,6 +44,9 @@ export default class ButtonsPanel extends React.Component {
             borderRadius:0.1,
             width:1,
             marginLeft: 5,
+            transform: [{
+              rotateY: -26
+            }]
           }}
         >
           <Text

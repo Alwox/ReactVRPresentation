@@ -5,6 +5,7 @@ import {
   Pano,
   View,
   SpotLight,
+  Image,
 } from 'react-vr';
 import ButtonPres from '../components/ButtonPres.vr';
 import TextPres from '../components/TextPres.vr';
@@ -62,7 +63,7 @@ export default class WhyItsImportant extends React.Component {
           }}
           angle={60}
         />
-        <Pano source={asset('images/space.png')}/>{console.log(this.state.opacity)}
+        <Pano source={asset('images/space.png')}/>
         <AnimTextPres
           style={{
             transform: [{translateZ: this.state.distance}],
@@ -72,12 +73,99 @@ export default class WhyItsImportant extends React.Component {
         />
         {
           showElements >= 1 &&
-          <AnimTextPres
+          <View
             style={{
-              opacity: this.state.opacity,
+              flexDirection: 'row',
+              width: 18,
+              height: 2,
+              transform: [{
+                translate: [7,0,0]
+              }]
             }}
-            text="we can already use it"
-          />
+          >
+            <TextPres
+              style={{}}
+              text="we can already use it"
+            />
+            <View
+              style={{
+                marginLeft: 5,
+                marginRight: 5,
+                width: 3,
+                alignItems: 'center',
+                transform: [
+                  {translateZ: 3},
+                  {rotateY: -46},
+                ],
+              }}
+            >
+              <TextPres
+                text="virtual tours"
+              />
+              <Image
+                source={asset(`images/VirtualTours.png`)}
+                style={{
+                  width: 3,
+                  height: 2.1,
+                  transform: [{
+                    translate: [0,0,0]
+                  }]
+                }}
+              />
+            </View>
+            <View
+              style={{
+                marginLeft: 5,
+                marginRight: 5,
+                width: 5,
+                alignItems: 'center',
+                transform: [
+                  {translate: [-12, 0, 12]},
+                  {rotateY: -100},
+                ],
+              }}
+            >
+              <TextPres
+                text="advertising websites"
+              />
+              <Image
+                source={asset(`images/advertisingWebsites.png`)}
+                style={{
+                  width: 3,
+                  height: 2.1,
+                  transform: [{
+                    translate: [0,0,0]
+                  }]
+                }}
+              />
+            </View>
+            <View
+              style={{
+                marginLeft: 5,
+                marginRight: 5,
+                width: 5,
+                alignItems: 'center',
+                transform: [
+                  {translate: [-32, 0, 18]},
+                  {rotateY: -150},
+                ],
+              }}
+            >
+              <TextPres
+                text="3D models presentation"
+              />
+              <Image
+                source={asset(`images/3DModelsPresentation.png`)}
+                style={{
+                  width: 3,
+                  height: 2.1,
+                  transform: [{
+                    translate: [0,0,0]
+                  }]
+                }}
+              />
+            </View>
+          </View>
         }
         {
           showElements >= 2 &&
@@ -94,9 +182,12 @@ export default class WhyItsImportant extends React.Component {
             text="and is moving into web direction"
           />
         }
-        <ButtonPres
-          onClick={this.showMore.bind(this)}
-        />
+        {
+          showElements < 3 &&
+          <ButtonPres
+            onClick={this.showMore.bind(this)}
+          />
+        }
       </View>
     );
   }
