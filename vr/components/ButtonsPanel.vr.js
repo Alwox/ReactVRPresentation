@@ -11,6 +11,7 @@ export default class ButtonsPanel extends React.Component {
       <View
         style={{
           flexDirection: 'row',
+          height: 0.8
         }}
       >
         <VrButton
@@ -19,7 +20,7 @@ export default class ButtonsPanel extends React.Component {
             borderWidth:0.02,
             borderColor: '#d6d7da',
             borderRadius:0.1,
-            width:1,
+            width: 1.2,
             marginRight: 5,
             transform: [{
               rotateY: 26
@@ -28,10 +29,10 @@ export default class ButtonsPanel extends React.Component {
         >
           <Text
             style={{
-              fontSize: 0.3,
+              fontSize: 0.4,
               fontWeight: '400',
               textAlign: 'center',
-              textAlignVertical: 'center',
+              marginTop: 0.1
             }}>
             Back
           </Text>
@@ -42,7 +43,7 @@ export default class ButtonsPanel extends React.Component {
             borderWidth:0.02,
             borderColor: '#d6d7da',
             borderRadius:0.1,
-            width:1,
+            width: 1.2,
             marginLeft: 5,
             transform: [{
               rotateY: -26
@@ -51,10 +52,10 @@ export default class ButtonsPanel extends React.Component {
         >
           <Text
             style={{
-              fontSize: 0.3,
+              fontSize: 0.4,
               fontWeight: '400',
               textAlign: 'center',
-              textAlignVertical: 'center',
+              marginTop: 0.1
             }}>
             Next
           </Text>

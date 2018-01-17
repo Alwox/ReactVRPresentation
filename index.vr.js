@@ -40,8 +40,8 @@ export default class ReactVRPresentation extends React.Component {
     return (
       <View
         style={{
-          transform: [{translate: [-6, 3, -10]}],
-          height: 6,
+          transform: [{translate: [-6, 5, -10]}],
+          height: 10,
           width:12,
           justifyContent: 'space-between'
         }}
