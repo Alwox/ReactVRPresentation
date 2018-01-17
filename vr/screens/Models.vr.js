@@ -10,15 +10,20 @@ import {
   Cylinder,
   SpotLight,
 } from 'react-vr';
+import {
+  Easing
+} from 'react-native';
 import ButtonPres from '../components/ButtonPres.vr';
 import TextPres from '../components/TextPres.vr';
 const AnimTextPres = Animated.createAnimatedComponent(TextPres);
+const AnimSphere = Animated.createAnimatedComponent(Sphere);
 
 export default class Models extends React.Component {
   constructor(){
     super();
     this.state={
       distance: new Animated.Value(-6),
+      sphereBounce: new Animated.Value(0),
       showElements: 0,
       light: false,
     }
@@ -32,24 +37,28 @@ export default class Models extends React.Component {
         duration: 2000,
       }
     ).start();
+    this.bounce();
   }
+
+  bounce = () =>{
+    this.state.sphereBounce.setValue(0);
+    Animated.timing(
+      this.state.sphereBounce,
+      {
+        toValue: -6,
+        duration: 3000,
+        easing: Easing.bounce,
+      }
+    ).start(this.bounce);
+  };
 
   showMore(){
     this.setState({
       showElements: this.state.showElements + 1,
     });
-    Animated.timing(
-      this.state.opacity,
-      {
-        toValue: 1,
-        duration: 10000,
-      }
-    ).start();
   }
 
   turnLight(){
-    console.log('uuuuu')
-
     this.setState({
       light: !this.state.light,
     });
@@ -132,16 +141,17 @@ export default class Models extends React.Component {
             onClick={this.showMore.bind(this)}
           />
         }
-        <Sphere
+        <AnimSphere
           lit={light}
           radius={1}
           widthSegments={20}
           heightSegments={20}
           style={{
             transform: [
-              {translate: [8.5, -6, 27]},
+              {translate: [8.5, 0, 27]},
+              {translateY: this.state.sphereBounce},
             ],
-            color:'rgb(182, 219, 203)',
+            color:'rgb(186, 46, 169)',
           }}
         />
         <Box
@@ -180,7 +190,7 @@ export default class Models extends React.Component {
             transform: [
               {translate: [-14, -6.1, 36.5]},
             ],
-            color:'rgb(182, 219, 203)',
+            color:'rgb(182, 244, 66)',
           }}
         />
         <Plane
