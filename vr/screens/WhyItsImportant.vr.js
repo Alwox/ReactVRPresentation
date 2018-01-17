@@ -34,13 +34,6 @@ export default class WhyItsImportant extends React.Component {
     this.setState({
       showElements: this.state.showElements + 1,
     });
-    Animated.timing(
-      this.state.opacity,
-      {
-        toValue: 1,
-        duration: 10000,
-      }
-    ).start();
   }
 
   render() {
