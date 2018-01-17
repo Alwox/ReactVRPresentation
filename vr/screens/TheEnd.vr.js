@@ -1,30 +1,47 @@
 import React from 'react';
 import {
+  Animated,
   asset,
   Pano,
-  Text,
   View,
-  VrButton,
 } from 'react-vr';
+import TextPres from '../components/TextPres.vr';
+const AnimTextPres = Animated.createAnimatedComponent(TextPres);
 
 export default class TheEnd extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      distance: new Animated.Value(-6),
+    }
+  }
+
+  componentDidMount() {
+    Animated.timing(
+      this.state.distance,
+      {
+        toValue: 0,
+        duration: 2000,
+      }
+    ).start();
+  }
+
   render() {
     return (
       <View
         style={{
-          width:8,
+          alignItems: 'center',
+          height: 5
         }}
       >
         <Pano source={asset('images/space.png')}/>
-        <Text
+        <AnimTextPres
           style={{
-            fontSize: 0.8,
-            fontWeight: '400',
-            textAlign: 'center',
-            textAlignVertical: 'center',
-          }}>
-          Thank you!
-        </Text>
+            transform: [{translateZ: this.state.distance}],
+          }}
+          text="Thank you!"
+          type="title"
+        />
       </View>
     );
   }
