@@ -17,6 +17,7 @@ import ButtonPres from '../components/ButtonPres.vr';
 import TextPres from '../components/TextPres.vr';
 const AnimTextPres = Animated.createAnimatedComponent(TextPres);
 const AnimSphere = Animated.createAnimatedComponent(Sphere);
+const AnimBox = Animated.createAnimatedComponent(Box);
 
 export default class Models extends React.Component {
   constructor(){
@@ -24,6 +25,7 @@ export default class Models extends React.Component {
     this.state={
       distance: new Animated.Value(-6),
       sphereBounce: new Animated.Value(0),
+      rotate: new Animated.Value(0),
       showElements: 0,
       light: false,
     }
@@ -38,6 +40,7 @@ export default class Models extends React.Component {
       }
     ).start();
     this.bounce();
+    this.rotate();
   }
 
   bounce = () =>{
@@ -50,6 +53,18 @@ export default class Models extends React.Component {
         easing: Easing.bounce,
       }
     ).start(this.bounce);
+  };
+
+  rotate = () =>{
+    this.state.rotate.setValue(0);
+    Animated.timing(
+      this.state.rotate,
+      {
+        toValue: 360,
+        duration: 6000,
+        easing: Easing.linear,
+      }
+    ).start(this.rotate);
   };
 
   showMore(){
@@ -154,7 +169,7 @@ export default class Models extends React.Component {
             color:'rgb(186, 46, 169)',
           }}
         />
-        <Box
+        <AnimBox
           lit={light}
           dimWidth={2}
           dimDepth={2}
@@ -162,7 +177,7 @@ export default class Models extends React.Component {
           style={{
             transform: [
               {translate: [2, -6, 23]},
-              {rotateZ:0}
+              {rotateY: this.state.rotate}
               ],
             color:'rgb(110, 183, 216)',
           }}
