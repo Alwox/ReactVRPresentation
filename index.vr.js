@@ -9,7 +9,6 @@ import WhatItIs from './vr/screens/WhatItIs.vr';
 import WhyItsImportant from './vr/screens/WhyItsImportant.vr';
 import WhatWeNeed from './vr/screens/WhatWeNeed.vr';
 import Models from './vr/screens/Models.vr';
-import ThereIsMore from './vr/screens/ThereIsMore.vr';
 import NewChallenges from './vr/screens/NewChallenges.vr';
 import TheEnd from './vr/screens/TheEnd.vr';
 import ButtonsPanel from './vr/components/ButtonsPanel.vr';
@@ -24,7 +23,7 @@ export default class ReactVRPresentation extends React.Component {
 
   changeScreen(next){
     const {screen} = this.state;
-    if(next && screen === 8){
+    if(next && screen === 7){
       this.setState({
         screen: 0,
       })
@@ -67,12 +66,9 @@ export default class ReactVRPresentation extends React.Component {
         <Models/>
         }
         {screen === 6 &&
-        <ThereIsMore/>
-        }
-        {screen === 7 &&
         <NewChallenges/>
         }
-        {screen === 8 &&
+        {screen === 7 &&
         <TheEnd/>
         }
         {screen !== 0 &&

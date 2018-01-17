@@ -1,105 +1,197 @@
 import React from 'react';
 import {
+  Animated,
   asset,
   Pano,
-  Text,
   View,
-  VrButton,
   Box,
   Plane,
   Sphere,
   Cylinder,
+  SpotLight,
 } from 'react-vr';
+import ButtonPres from '../components/ButtonPres.vr';
+import TextPres from '../components/TextPres.vr';
+const AnimTextPres = Animated.createAnimatedComponent(TextPres);
 
 export default class Models extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      distance: new Animated.Value(-6),
+      showElements: 0,
+      light: false,
+    }
+  }
+
+  componentDidMount() {
+    Animated.timing(
+      this.state.distance,
+      {
+        toValue: 0,
+        duration: 2000,
+      }
+    ).start();
+  }
+
+  showMore(){
+    this.setState({
+      showElements: this.state.showElements + 1,
+    });
+    Animated.timing(
+      this.state.opacity,
+      {
+        toValue: 1,
+        duration: 10000,
+      }
+    ).start();
+  }
+
+  turnLight(){
+    console.log('uuuuu')
+
+    this.setState({
+      light: !this.state.light,
+    });
+  }
+
   render() {
+    const {showElements, light} = this.state;
     return (
       <View
         style={{
-          width:8,
+          alignItems: 'center',
+          height: 5
         }}
       >
-        <Pano source={asset('images/space.png')}/>
-        <Text
+        {
+          light &&
+          <SpotLight
+            style={{
+              color:'white',
+              transform:[{
+                translate:[-5,6,12]
+              }]
+            }}
+            angle={90}
+          />
+        }
+        <Pano source={asset('images/chess-world.jpg')}/>
+        <AnimTextPres
           style={{
-            fontSize: 0.7,
-            fontWeight: '400',
-            textAlign: 'center',
-            textAlignVertical: 'center',
-          }}>
-          3D models
-        </Text>
-        <Text
+            transform: [{translateZ: this.state.distance}],
+          }}
+          text="3D models and more"
+          type="title"
+        />
+        {
+          showElements >= 1 &&
+          <TextPres
+            text="4 primitives objects"
+          />
+        }
+        {
+          showElements >= 2 &&
+          <TextPres
+            text="Model component"
+          />
+        }
+        {
+          showElements >= 3 &&
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
+            <TextPres
+              text="4 types of light"
+              style={{
+                width: 5
+              }}
+            />
+            <ButtonPres
+              onClick={this.turnLight.bind(this)}
+            />
+          </View>
+        }
+        {
+          showElements >= 4 &&
+          <TextPres
+            text="sound"
+          />
+        }
+        {
+          showElements >= 4 &&
+          <TextPres
+            text="2 types of video"
+          />
+        }
+        {
+          showElements < 4 &&
+          <ButtonPres
+            onClick={this.showMore.bind(this)}
+          />
+        }
+        <Sphere
+          lit={light}
+          radius={1}
+          widthSegments={20}
+          heightSegments={20}
           style={{
-            fontSize: 0.3,
-          }}>
-          * 4 primitives objects
-        </Text>
-        <Text
-          style={{
-            fontSize: 0.3,
-          }}>
-          * Model component
-        </Text>
-
+            transform: [
+              {translate: [8.5, -6, 27]},
+            ],
+            color:'rgb(182, 219, 203)',
+          }}
+        />
         <Box
+          lit={light}
           dimWidth={2}
           dimDepth={2}
           dimHeight={1}
           style={{
             transform: [
-              {translate: [9, -1, 2]},
-              {rotateZ:50}
+              {translate: [2, -6, 23]},
+              {rotateZ:0}
               ],
             color:'rgb(110, 183, 216)',
           }}
         />
-        <Plane
-          dimWidth={10}
-          dimHeight={20}
-          style={{
-            transform: [
-              {translate: [4, -9, 6]},
-              {rotateZ:0},
-              {rotateX:-90},
-              {rotateY:0}
-            ],
-            color:'rgb(182, 219, 203)',
-          }}
-        />
-        <Sphere
-          radius={2}
-          widthSegments={20}
-          heightSegments={20}
-          style={{
-            transform: [
-              {translate: [0, 0, 5]},
-            ],
-            color:'rgb(182, 219, 203)',
-          }}
-        />
         <Cylinder
-          radiusTop={0.5}
-          radiusBottom={0.5}
-          dimHeight={2}
+          lit={light}
+          radiusTop={1}
+          radiusBottom={1}
+          dimHeight={1}
           segments={12}
           style={{
             transform: [
-              {translate: [0, -6, 4]},
+              {translate: [-4, -7, 31.5]},
             ],
             color:'rgb(182, 219, 203)',
           }}
         />
         <Cylinder
+          lit={light}
           radiusTop={0}
           radiusBottom={1}
-          dimHeight={2}
+          dimHeight={4}
           segments={12}
           style={{
             transform: [
-              {translate: [9, -6, 4]},
+              {translate: [-14, -6.1, 36.5]},
             ],
             color:'rgb(182, 219, 203)',
+          }}
+        />
+        <Plane
+          lit={light}
+          dimWidth={14}
+          dimHeight={14}
+          style={{
+            transform: [
+              {translate: [0, -1, -6]},
+            ],
+            color:'rgb(52, 64, 84)',
           }}
         />
       </View>

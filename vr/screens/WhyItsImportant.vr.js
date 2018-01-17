@@ -165,7 +165,7 @@ export default class WhyItsImportant extends React.Component {
         {
           showElements >= 3 &&
           <TextPres
-            text="and is moving into web direction"
+            text="and is moving also into web direction"
           />
         }
         {
