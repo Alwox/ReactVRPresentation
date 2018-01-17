@@ -3,9 +3,7 @@ import {
   Animated,
   asset,
   Pano,
-  Text,
   View,
-  VrButton,
   CylindricalPanel,
   Image,
   SpotLight,
@@ -15,18 +13,6 @@ import TextPres from '../components/TextPres.vr';
 const AnimTextPres = Animated.createAnimatedComponent(TextPres);
 
 export default class WhatWeNeed extends React.Component {
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     picture:0
-  //   }
-  // }
-  //
-  // setPicture(link){
-  //   this.setState({
-  //     picture: link
-  //   })
-  // }
   constructor(){
     super();
     this.state={
@@ -78,22 +64,6 @@ export default class WhatWeNeed extends React.Component {
           angle={60}
         />
         <Pano source={asset('images/space.png')}/>
-        {/*{*/}
-          {/*this.state.picture !== 0 &&*/}
-          {/*<CylindricalPanel*/}
-            {/*layer={{width: 2540, height: 922}}*/}
-            {/*style={{*/}
-              {/*transform: [*/}
-                {/*{translate: [1, -2, 7]},*/}
-                {/*{rotateY: -110}*/}
-              {/*],*/}
-            {/*}}>*/}
-            {/*<Image*/}
-              {/*source={asset(this.state.picture)}*/}
-              {/*style={{width: 2540, height: 922}}*/}
-            {/*/>*/}
-          {/*</CylindricalPanel>*/}
-        {/*}*/}
         <AnimTextPres
           style={{
             transform: [{translateZ: this.state.distance}],
@@ -142,10 +112,42 @@ export default class WhatWeNeed extends React.Component {
           />
         }
         {
+          showElements >= 3 &&
+          <CylindricalPanel
+            layer={{width: 1905, height: 692, radius: 60}}
+            style={{
+              transform: [
+                {translate: [24, 2, 10]},
+                {rotateY: -110}
+              ],
+            }}>
+            <Image
+              source={asset('images/WebGLSupport.png')}
+              style={{width: 1905, height: 692}}
+            />
+          </CylindricalPanel>
+        }
+        {
           showElements >= 4 &&
           <TextPres
             text="for using VR devices - also with WebVR"
           />
+        }
+        {
+          showElements >= 4 &&
+          <CylindricalPanel
+            layer={{width: 1905, height: 692, radius: 60}}
+            style={{
+              transform: [
+                {translate: [-24, 4, 10]},
+                {rotateY: 110}
+              ],
+            }}>
+            <Image
+              source={asset('images/WebVRSupport.png')}
+              style={{width: 1905, height: 692}}
+            />
+          </CylindricalPanel>
         }
         {
           showElements < 4 &&
@@ -153,94 +155,6 @@ export default class WhatWeNeed extends React.Component {
             onClick={this.showMore.bind(this)}
           />
         }
-        {/*<Text*/}
-          {/*style={{*/}
-            {/*fontSize: 0.3,*/}
-          {/*}}>*/}
-          {/** as a user*/}
-        {/*</Text>*/}
-        {/*<View*/}
-          {/*style={{*/}
-            {/*flexDirection: 'row',*/}
-          {/*}}>*/}
-          {/*<Text*/}
-            {/*style={{*/}
-              {/*fontSize: 0.25,*/}
-              {/*transform: [{translate: [0.5, 0, 0]}],*/}
-            {/*}}>*/}
-            {/*- browser with WebGL support*/}
-          {/*</Text>*/}
-          {/*<VrButton*/}
-            {/*onClick={() => this.setPicture(this.state.picture === 0 ? 'images/WebGLSupport.png' : 0)}*/}
-            {/*style={{*/}
-              {/*borderWidth:0.01,*/}
-              {/*borderColor: '#d6d7da',*/}
-              {/*borderRadius:0.1,*/}
-              {/*width:0.5,*/}
-              {/*height:0.2,*/}
-              {/*transform: [{translate: [1, 0, 0]}],*/}
-            {/*}}*/}
-          {/*>*/}
-            {/*<Text*/}
-              {/*style={{*/}
-                {/*fontSize: 0.15,*/}
-                {/*textAlign: 'center',*/}
-              {/*}}>*/}
-              {/*{this.state.picture === 'images/WebGLSupport.png' ? 'hide' : 'show'}*/}
-            {/*</Text>*/}
-          {/*</VrButton>*/}
-        {/*</View>*/}
-        {/*<View*/}
-          {/*style={{*/}
-            {/*flexDirection: 'row',*/}
-          {/*}}>*/}
-          {/*<Text*/}
-            {/*style={{*/}
-              {/*fontSize: 0.25,*/}
-              {/*transform: [{translate: [0.5, 0, 0]}],*/}
-            {/*}}>*/}
-            {/*- for using VR devices - also with WebVR*/}
-          {/*</Text>*/}
-          {/*<VrButton*/}
-            {/*onClick={() => this.setPicture(this.state.picture === 0 ? 'images/WebVRSupport.png' : 0)}*/}
-            {/*style={{*/}
-              {/*borderWidth:0.01,*/}
-              {/*borderColor: '#d6d7da',*/}
-              {/*borderRadius:0.1,*/}
-              {/*width:0.5,*/}
-              {/*height:0.2,*/}
-              {/*transform: [{translate: [1, 0, 0]}],*/}
-            {/*}}*/}
-          {/*>*/}
-            {/*<Text*/}
-              {/*style={{*/}
-                {/*fontSize: 0.15,*/}
-                {/*textAlign: 'center',*/}
-              {/*}}>*/}
-              {/*{this.state.picture === 'images/WebVRSupport.png' ? 'hide' : 'show'}*/}
-            {/*</Text>*/}
-          {/*</VrButton>*/}
-        {/*</View>*/}
-        {/*<Text*/}
-          {/*style={{*/}
-            {/*fontSize: 0.3,*/}
-          {/*}}>*/}
-          {/** as a programmer*/}
-        {/*</Text>*/}
-        {/*<Text*/}
-          {/*style={{*/}
-            {/*fontSize: 0.25,*/}
-            {/*transform: [{translate: [0.5, 0, 0]}],*/}
-          {/*}}>*/}
-          {/*- Node.js*/}
-        {/*</Text>*/}
-        {/*<Text*/}
-          {/*style={{*/}
-            {/*fontSize: 0.25,*/}
-            {/*transform: [{translate: [0.5, 0, 0]}],*/}
-          {/*}}>*/}
-          {/*- react-vr-cli from npm*/}
-        {/*</Text>*/}
       </View>
     );
   }

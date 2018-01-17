@@ -3,7 +3,6 @@ import {
   Animated,
   asset,
   Pano,
-  Text,
   View,
   SpotLight,
 } from 'react-vr';
