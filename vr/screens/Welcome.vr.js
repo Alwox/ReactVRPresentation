@@ -42,6 +42,12 @@ export default class ReactVRPresentation extends React.Component {
         <TextPres
           text="create VR experience easily"
         />
+        <TextPres
+          text="presentation made by Alan Wołejko"
+          style={{
+            fontSize:0.2
+          }}
+        />
         <VrButton
           onClick={this.props.changeScreen}
           style={{
